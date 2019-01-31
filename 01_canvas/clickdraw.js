@@ -1,3 +1,10 @@
+/*
+LeafGreen -- Karen Li, Thomas Lee
+SoftDev2 pd7
+K01 -- ...and I want to Paint It Better
+2019-01-31
+*/
+
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
 
@@ -8,6 +15,7 @@ var clear = true;
 var clear_button = document.getElementById("clear");
 clear_button.addEventListener('click', function(e){
     if (clear){
+	//if the canvas is already clear, this function will not be executed
 	e.preventDefault();
 	console.log("already clear");
     }
