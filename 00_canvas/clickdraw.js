@@ -1,8 +1,8 @@
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
 
-ctx.fillStyle = "#ff0000";
-ctx.fillRect(50,50,100,200);
+//ctx.fillStyle = "#ff0000";
+//ctx.fillRect(50,50,100,200);
 
 var clear_button = document.getElementById("clear");
 clear_button.addEventListener('click', function(){
@@ -34,6 +34,7 @@ c.addEventListener('click', function(e){
 	ctx.fillRect(x,y,50,50);
     }
     else{
+	ctx.fillStyle = "#000000";
 	ctx.beginPath();
 	ctx.arc(x,y,3,0,Math.PI*2);
 	ctx.fill()
