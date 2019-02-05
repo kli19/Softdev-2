@@ -19,7 +19,13 @@ var clear_button = document.getElementById("clear");
 
 //clear the canvas when the clear button is clicked
 clear_button.addEventListener('click', function(e){
-
+    if (clear){
+	//if the canvas is already clear, this function will not be executed
+	e.preventDefault();
+	console.log("already clear");
+    }
+    ctx.clearRect(0,0,c.width,c.height);
+    clear = true;
 });
 
 var rectangle_mode = true;
