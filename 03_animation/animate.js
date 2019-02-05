@@ -53,12 +53,12 @@ var draw_dot = function(){
 
     //cancel before animating in case button is clicked multiple times
     window.cancelAnimationFrame(requestID)
-    requestID = window.requestAnimationFrame(drawDot);
+    requestID = window.requestAnimationFrame(draw_dot);
 }
 
 //stop drawing the dot
 var stop_it = function(){
-    console.log(requestID);
+    //console.log(requestID);
     window.cancelAnimationFrame(requestID);
 }
 
