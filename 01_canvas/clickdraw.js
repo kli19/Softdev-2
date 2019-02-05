@@ -1,6 +1,6 @@
 /*
 LeafGreen -- Karen Li, Thomas Lee
-SoftDev2 pd7
+SoftDev2 pd6
 K01 -- ...and I want to Paint It Better
 2019-01-31
 */

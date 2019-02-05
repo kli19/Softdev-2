@@ -1,6 +1,6 @@
 /*
   LeafGreen -- Karen Li, Thomas Lee
-  SoftDev2 pd7
+  SoftDev2 pd6
   K02 -- ...Connecting the Dots
   2019-01-31
 */
