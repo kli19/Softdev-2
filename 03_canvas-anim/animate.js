@@ -2,7 +2,7 @@
   FireRed -- Karen Li, Kendrick Liang
   SoftDev2 pd6
   K03 -- They lock us in the tower whenever we get caught
-  2019-02-04-31
+  2019-02-04
 */
 
 //get context for canvas
