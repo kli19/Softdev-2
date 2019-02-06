@@ -12,6 +12,7 @@ ctx = c.getContext("2d");
 //get buttons
 var circle_button = document.getElementById("circle");
 var stop_button = document.getElementById("stop");
+var dvd_button = document.getElementById("dvd");
 
 //requestID for animation
 var requestID = 0;
@@ -21,6 +22,10 @@ var radius = 0;
 
 //true if the circle is growing; false if shrinking
 var growing = true;
+
+//dvd image 
+var logo = new Image();
+logo.src = "logo_dvd.jpg";
 
 //clear the canvas
 var clear = function(e){
@@ -56,14 +61,53 @@ var draw_dot = function(){
     requestID = window.requestAnimationFrame(draw_dot);
 }
 
+//animate bouncing dvd logo
+var animate_dvd = function(){
+    //dvd set up
+    var rectWidth = 100;
+    var rectHeight = 50;
+
+    var rectX = Math.floor(Math.random() * (c.width-rectWidth));
+    var rectY = Math.floor(Math.random() * (c.height-rectHeight));
+
+    var xVel = 1;
+    var yVel = 1;
+
+    var dvd_logo = function(){
+	//clear the canvas
+	clear();
+	//draw the logo
+	ctx.drawImage(logo, rectX, rectY, rectWidth, rectHeight);
+
+	if(rectX == 0 || rectX + rectWidth == c.width ){
+	    xVel = -xVel;
+	}
+	if(rectY == 0 || rectY + rectHeight == c.height){
+	    yVel = -yVel;
+	}
+
+	rectX += xVel;
+	rectY += yVel;
+	
+	//cancel before animating in case button is clicked multiple times
+	window.cancelAnimationFrame(requestID);
+	requestID = window.requestAnimationFrame(dvd_logo);
+    }
+
+    dvd_logo();
+}
+
 //stop drawing the dot
 var stop_it = function(){
     //console.log(requestID);
     window.cancelAnimationFrame(requestID);
 }
 
-//animation begins when button is clicked
+//circle animation begins when button is clicked
 circle_button.addEventListener("click", draw_dot);
+
+//dvd animation begins when button is clicked
+dvd_button.addEventListener("click", animate_dvd);
 
 //animation stops when button is clicked
 stop_button.addEventListener("click", stop_it);
