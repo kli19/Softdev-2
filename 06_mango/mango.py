@@ -14,6 +14,10 @@ collection = db.restaurants
 def get_borough(borough):
     return collection.find( {'borough': borough} )
 
+#All restaurants in a specified zip code.
+def get_zipcode(zipcode):
+    return collection.find( {'address.zipcode': zipcode} )
+
 def display_restaurants(collection):
     for i in collection:
         #print (i['name'])
@@ -21,6 +25,9 @@ def display_restaurants(collection):
 
 print ("-----RESTAURANTS IN QUEENS-----\n")
 #display_restaurants(get_borough("Queens"))
+
+print ("-----RESTAURANTS IN 10282----\n")
+display_restaurants(get_zipcode("10282"))
 
 
 
