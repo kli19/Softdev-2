@@ -38,6 +38,10 @@ def get_zip_grade(zipcode, grade):
 def get_zip_score(zipcode, score):
     return collection.find( {'address.zipcode': zipcode, 'grades.score': {'$lt': score} } )
 
+#Something more clever
+def get_zip_grade_score(zipcode, grade, score):
+    return collection.find( {'address.zipcode': zipcode, 'grades.grade': grade, 'grades.score': {'$gt': score} } )
+    
 def display_restaurants(collection):
     for i in collection:
         #print (i['name'])
@@ -55,6 +59,8 @@ print ("-----RESTAURANTS IN 10282 WITH GRADE A----\n")
 print ("-----RESTAURANTS IN 10282 WITH SCORE LOWER THAN 7----\n")
 #display_restaurants(get_zip_score("10282", 5))
 
+print ("-----RESTAURANTS IN 10282 WITH GRADE A AND SCORE GREATER THAN 20----\n")
+display_restaurants(get_zip_grade_score("10282", "A", 20))
 
 
 
