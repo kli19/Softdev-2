@@ -30,6 +30,18 @@ def find_weakness(weakness):
 def find_type_weakness(pokemon_type, weakness):
     return collection.find({"$and":[{"type": pokemon_type}, {"weaknesses": weakness}]}) 
 
+def find_spawn(spawn_chance):
+    return collection.find({"spawn_chance":{"$gt" : spawn_chance}})
+
+def find_type_spawn(pokemon_type, spawn_chance):
+    return collection.find({"$and":[{"type": pokemon_type}, {"spawn_chance": {"$gt" : spawn_chance}}]}) 
+
+def display_pokemon(pokemons):
+    for pokemon in pokemons:
+        print (pokemon["name"])
+        #print(pokemon)
+
+
 print("=====POKEMON WITH ID 1=====")
 display_pokemon(find_id(1))
 
@@ -44,3 +56,9 @@ display_pokemon(find_weakness("Water"))
 
 print("=====POKEMON WITH TYPE DRAGON AND WEAKNESS DRAGON=====")
 display_pokemon(find_type_weakness("Dragon", "Dragon"))
+
+print("=====POKEMON WITH SPAWN CHANCE GREATER THAN .9=====")
+display_pokemon(find_spawn(.9))
+
+print("=====POKEMON WITH TYPE ICE AND SPAWN CHANCE GREATER THAN .1=====")
+display_pokemon(find_type_spawn("Ice", .1))
