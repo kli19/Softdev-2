@@ -14,3 +14,9 @@ collection = db.pokemon
 f = open("pokedex.json")
 data = json.load(f)
 collection.insert_many(data["pokemon"])
+
+def find_id(pokemon_id):
+    return collection.find({"id": pokemon_id})
+
+def find_name(name):
+    return collection.find({"name": name})
