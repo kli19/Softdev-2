@@ -3,6 +3,14 @@
 #K07 -- Import/Export Bank
 #2019-03-02
 
-import pymongo
+import pymongo, json
+
 SERVER_ADDR="142.93.206.119"
 connection=pymongo.MongoClient(SERVER_ADDR)
+connection.drop_database("HeartGold")
+db = connection.HeartGold
+collection = db.pokemon
+
+f = open("pokedex.json")
+data = json.load(f)
+collection.insert_many(data["pokemon"])
