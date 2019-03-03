@@ -3,6 +3,14 @@
 #K07 -- Import/Export Bank
 #2019-03-02
 
+'''
+The Pokedex dataset conatins information about all 151 of the Generation I Pokemon including ID, name, type, weaknesses, spawn chance, and more"
+Link: https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
+
+Import mechanism:
+If the db is already in the server, it is dropped to prevent duplicates. A new db HeartGold and new collection pokemon is created. Because the dataset is in the form of a JSON file, it can easily be loaded as a python list of dictionaries and inserted into the collection with the insert_many function.
+'''
+
 import pymongo, json
 
 SERVER_ADDR="142.93.206.119"
