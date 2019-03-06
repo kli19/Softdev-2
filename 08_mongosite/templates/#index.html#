@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form action="/auth">
+      IP Address: </br>
+      <input type="text" name="ip_address">
+        <button type="submit"> Submit </button>
+    </form>
+  </body>
+</html>
