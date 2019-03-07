@@ -19,7 +19,7 @@ connection.drop_database("HeartGold")
 db = connection.HeartGold
 collection = db.pokemon
 
-f = open("pokedex.json")
+f = open("data/pokedex.json")
 data = json.load(f)
 collection.insert_many(data["pokemon"])
 
