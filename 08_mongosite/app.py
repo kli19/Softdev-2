@@ -25,10 +25,13 @@ def poke_info():
     length = len(poke_dict)
     return render_template("pokemon.html",  temp_name = poke_name, length = length, **poke_dict)
 
+#idk if this works; need to test in class
 @app.route("/ip", methods=["POST", "GET"])
 def change_ip():
     ip = request.args["ip_address"]
-
+    print(pokemon.SERVER_ADDR)
+    pokemon.change_ip(ip)
+    #print(pokemon.SERVER_ADDR)
     return render_template("change_ip.html", ip = ip)
 
 if __name__ == "__main__":
