@@ -1,6 +1,6 @@
-#HeartGold -- Karen Li, Thomas Lee
+#Pearl -- Karen Li, Amit Narang, Kyle Tau
 #SoftDev2 pd6
-#K07 -- Import/Export Bank
+#K08 -- Ay Mon, Go Git It From Yer Flask
 #2019-03-02
 
 '''
@@ -27,7 +27,8 @@ def find_id(pokemon_id):
     return collection.find({"id": pokemon_id})
 
 def find_name(name):
-    return collection.find({"name": name})
+    return collection.find_one({"name": name})
+
 
 def find_type(pokemon_type):
     return collection.find({"type": pokemon_type})
@@ -49,7 +50,7 @@ def display_pokemon(pokemons):
         print (pokemon["name"])
         #print(pokemon)
 
-
+"""
 print("=====POKEMON WITH ID 1=====")
 display_pokemon(find_id(1))
 
@@ -70,3 +71,4 @@ display_pokemon(find_spawn(.9))
 
 print("=====POKEMON WITH TYPE ICE AND SPAWN CHANCE GREATER THAN .1=====")
 display_pokemon(find_type_spawn("Ice", .1))
+"""

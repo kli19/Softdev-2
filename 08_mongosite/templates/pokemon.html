@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    {% if length == 0 %}
+    There is no Pokemon {{temp_name}} in Gen I.
+    {% else %}
+    <h1>{{name}}</h1>
+    <b> type: </b> <br>
+    {% for t in type%}
+    {{t}} <br>
+    {% endfor %}
+    <br>
+    <b>weaknesses: </b> <br>
+    {% for weakness in weaknesses%}
+    {{weakness}} <br>
+    {% endfor %}
+    <br>
+    <b>spawn chance: </b> <br>
+    {{spawn_chance}} <br>
+    <br>
+    {% endif %}
+  </body>
+</html>

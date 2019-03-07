@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form action="/auth">
-      IP Address: </br>
+    <h1>Gen I Pokemon</h1>
+    <form action="/query">
+      IP Address: 
       <input type="text" name="ip_address">
-        <button type="submit"> Submit </button>
+      <button type="submit"> Submit </button>
     </form>
+    <br><br>
+    <!--
+    <form action="/results">
+      <select>
+	<option value="id">Search by ID</option>
+	<option value="name">Search by name</option>
+	<option value="type">Search by type</option>
+	<option value="weakness">Search by weakness</option>
+      </select>
+      <input type="text" name="query">
+      <button type="submit"> Submit </button>
+    </form>
+    -->
+    <form action="/poke_info">
+      Pokemon name:
+      <input type="text" name="poke_name">
+      <button type="submit"> Submit </button>
+    </form>
+    *the first letter of the name should be capitalized (e.g. "Dratini" instead of "dratini")*
   </body>
 </html>
