@@ -29,7 +29,6 @@ def find_id(pokemon_id):
 def find_name(name):
     return collection.find_one({"name": name})
 
-
 def find_type(pokemon_type):
     return collection.find({"type": pokemon_type})
 

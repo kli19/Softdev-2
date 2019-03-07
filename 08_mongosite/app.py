@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 @app.route("/", methods=["POST", "GET"])
-def ip_page():
+def home():
     return render_template("index.html")
 
 @app.route("/poke_info", methods=["POST", "GET"])
@@ -24,6 +24,12 @@ def poke_info():
         poke_dict = {}
     length = len(poke_dict)
     return render_template("pokemon.html",  temp_name = poke_name, length = length, **poke_dict)
+
+@app.route("/ip", methods=["POST", "GET"])
+def change_ip():
+    ip = request.args["ip_address"]
+
+    return render_template("change_ip.html", ip = ip)
 
 if __name__ == "__main__":
     app.debug = True #change to False before our demo
