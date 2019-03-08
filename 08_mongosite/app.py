@@ -37,6 +37,7 @@ def poke_info():
 #idk if this works; need to test in class
 @app.route("/ip", methods=["POST", "GET"])
 def change_ip():
+    global SERVER_ADDR
     ip = request.args["ip_address"]
     print(SERVER_ADDR)
 
