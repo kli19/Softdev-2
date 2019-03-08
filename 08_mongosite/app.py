@@ -38,8 +38,11 @@ def poke_info():
 @app.route("/ip", methods=["POST", "GET"])
 def change_ip():
     global SERVER_ADDR
+    global connection
+    global db
+    global collection
     ip = request.args["ip_address"]
-    print(SERVER_ADDR)
+    #print(SERVER_ADDR)
 
     SERVER_ADDR= ip
     connection=pymongo.MongoClient(SERVER_ADDR)
@@ -51,7 +54,7 @@ def change_ip():
     data = json.load(f)
     collection.insert_many(data["pokemon"])
     
-    print(SERVER_ADDR)
+    #print(SERVER_ADDR)
     return render_template("change_ip.html", ip = ip)
 
 if __name__ == "__main__":
