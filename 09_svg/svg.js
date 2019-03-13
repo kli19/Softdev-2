@@ -43,7 +43,13 @@ pic.addEventListener('click', function(e){
 })
 
 
-
+//clear
+clear_button.addEventListener('click', function(e) {
+    while (pic.lastChild) {
+	pic.removeChild(pic.lastChild);
+    }
+    clear = true;
+})
 
 
 /* //classwork to reference
