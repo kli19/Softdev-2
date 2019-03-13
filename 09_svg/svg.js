@@ -32,7 +32,7 @@ pic.addEventListener('click', function(e){
     pic.appendChild(d);
 
     //draw line between dots
-    if(!clear){
+    if(!is_clear){
 	var l = document.createElementNS(
 	    "http://www.w3.org/2000/svg", "line"
 	);
@@ -45,7 +45,7 @@ pic.addEventListener('click', function(e){
 	pic.appendChild(l);	
     }
     else{
-	clear = false;
+	is_clear = false;
     }
     prev_x = e.offsetX;
     prev_y = e.offsetY
@@ -57,7 +57,7 @@ clear_button.addEventListener('click', function(e) {
     while (pic.lastChild) {
 	pic.removeChild(pic.lastChild);
     }
-    clear = true;
+    is_clear = true;
 })
 
 
