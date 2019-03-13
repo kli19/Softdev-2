@@ -1,5 +1,13 @@
-//essentially a container
+/*
+  Karen Li
+  SoftDev2 pd6
+  K09 -- Connect the Dots
+  2019-03-13
+*/
+
+//get the pic
 var pic = document.getElementById("vimage")
+
 //get the clear button
 var clear_button = document.getElementById("clear");
 
@@ -10,6 +18,7 @@ var is_clear = true;
 var prev_x = 0;
 var prev_y = 0;
 
+//connect dots when pic is clicked
 pic.addEventListener('click', function(e){
     var d = document.createElementNS(
 	"http://www.w3.org/2000/svg", "circle"
@@ -22,7 +31,7 @@ pic.addEventListener('click', function(e){
     d.setAttribute("stroke", "red");
     pic.appendChild(d);
 
-    //draw line
+    //draw line between dots
     if(!clear){
 	var l = document.createElementNS(
 	    "http://www.w3.org/2000/svg", "line"
@@ -43,7 +52,7 @@ pic.addEventListener('click', function(e){
 })
 
 
-//clear
+//clear the pic
 clear_button.addEventListener('click', function(e) {
     while (pic.lastChild) {
 	pic.removeChild(pic.lastChild);
