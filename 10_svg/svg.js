@@ -27,11 +27,9 @@ var draw_dot = function(x,y){
     //event listener to change color or move dot
     d.addEventListener('click', function(e){
 	//e.preventDefault();
-	//if red change to green
 	if (d.getAttribute("fill")=="red"){
 	    d.setAttribute("fill", "green");
 	}
-	//move the dot
 	else{
 	    pic.removeChild(e.target);
 	    var x = Math.floor(Math.random() * pic.getAttribute("width"));
@@ -46,9 +44,7 @@ var draw_dot = function(x,y){
 pic.addEventListener('click', function(e){
     //e.preventDefault();
     if (e.target.getAttribute("id") == "vimage"){
-	var x = event.offsetX; //X cor of mouse
-	var y = event.offsetY; //Y cor of mouse
-        draw_dot(x,y);
+        draw_dot(event.offsetX, event.offsetY);
     }
 })	
 
