@@ -1,7 +1,7 @@
 /*
   Karen Li
   SoftDev2 pd6
-  K10 -- animate
+  K10 -- Ask Circles [Change || Die]
   2019-03-13
 */
 
@@ -11,31 +11,46 @@ var pic = document.getElementById("vimage")
 //get the clear button
 var clear_button = document.getElementById("clear");
 
-//instantiate x and y cor
-var prev_x = 0;
-var prev_y = 0;
-
-//draw dot when pic is clicked
-pic.addEventListener('click', function(e){
+//draw a dot and add event listener
+var draw_dot = function(x,y){
+    //make a red circle
     var d = document.createElementNS(
 	"http://www.w3.org/2000/svg", "circle"
     );
-    //draw dot
-    d.setAttribute("cx", e.offsetX);
-    d.setAttribute("cy", e.offsetY);
+    d.setAttribute("cx", x);
+    d.setAttribute("cy", y);
     d.setAttribute("r", 20);
     d.setAttribute("fill", "red");
     d.setAttribute("stroke", "black");
     pic.appendChild(d);
 
-    d.addEventListener('click', function(f){
-	//e.preventDefault()
+    //event listener to change color or move dot
+    d.addEventListener('click', function(e){
+	//e.preventDefault();
+	//if red change to green
 	if (d.getAttribute("fill")=="red"){
-	    d.setAttribute("fill", "green")
+	    d.setAttribute("fill", "green");
+	}
+	//move the dot
+	else{
+	    pic.removeChild(e.target);
+	    var x = Math.floor(Math.random() * pic.getAttribute("width"));
+	    var y = Math.floor(Math.random() * pic.getAttribute("height"));
+	    draw_dot(x,y)
 	}
     })
-})
+}
 
+
+//draw dot when pic (not dot) is clicked
+pic.addEventListener('click', function(e){
+    //e.preventDefault();
+    if (e.target.getAttribute("id") == "vimage"){
+	var x = event.offsetX; //X cor of mouse
+	var y = event.offsetY; //Y cor of mouse
+        draw_dot(x,y);
+    }
+})	
 
 //clear the pic
 clear_button.addEventListener('click', function(e) {
@@ -44,15 +59,3 @@ clear_button.addEventListener('click', function(e) {
     }
 })
 
-
-/* //classwork to reference
-var c = document.createElementNS(
-    "http://www.w3.org/2000/svg", "circle");
-c.setAttribute("cx", 0);
-c.setAttribute("cy", 0);
-c.setAttribute("r", 100);
-c.setAttribute("fill", "red")
-c.setAttribute("stroke", "black")
-
-pic.appendChild(c);
-*/
