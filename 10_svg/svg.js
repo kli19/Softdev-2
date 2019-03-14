@@ -44,7 +44,7 @@ var draw_dot = function(x,y){
 pic.addEventListener('click', function(e){
     //e.preventDefault();
     if (e.target.getAttribute("id") == "vimage"){
-        draw_dot(event.offsetX, event.offsetY);
+        draw_dot(e.offsetX, e.offsetY);
     }
 })	
 
