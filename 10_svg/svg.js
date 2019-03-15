@@ -11,6 +11,12 @@ var pic = document.getElementById("vimage")
 //get the clear button
 var clear_button = document.getElementById("clear");
 
+//get the move button
+var move_button = document.getElementById("move");
+
+//request ID for animation
+var requestID = 0;
+
 //draw a dot and add event listener
 var draw_dot = function(x,y){
     //make a red circle
@@ -53,3 +59,7 @@ clear_button.addEventListener('click', function(e) {
     }
 })
 
+//move the dots when the button is clicked
+move_button.addEventListener('click', function(e){
+    
+})
