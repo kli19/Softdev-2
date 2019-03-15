@@ -36,16 +36,14 @@ var draw_dot = function(x,y){
 	    var y = Math.floor(Math.random() * pic.getAttribute("height"));
 	    draw_dot(x,y)
 	}
+	e.stopPropagation();
     })
 }
 
 
 //draw dot when pic (not dot) is clicked
 pic.addEventListener('click', function(e){
-    //e.preventDefault();
-    if (e.target.getAttribute("id") == "vimage"){
-        draw_dot(e.offsetX, e.offsetY);
-    }
+    draw_dot(e.offsetX, e.offsetY);
 })	
 
 //clear the pic
