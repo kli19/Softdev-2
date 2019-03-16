@@ -8,16 +8,15 @@
 //get the pic
 var pic = document.getElementById("vimage")
 
-//get the clear button
+//get the buttons
 var clear_button = document.getElementById("clear");
-
-//get the move button
 var move_button = document.getElementById("move");
+var mys_button = document.getElementById("?");
 
 //request ID for animation
 var requestID = 0;
 
-//draw a dot and add event listener
+//draw a dot and add event listener to the dots
 var draw_dot = function(x,y){
     //make a red circle
     var d = document.createElementNS(
@@ -62,12 +61,12 @@ pic.addEventListener('click', function(e){
     draw_dot(e.offsetX, e.offsetY);
 })	
 
-//clear the pic
+//clear the pic when the clear button is clicked
 clear_button.addEventListener('click', clear);
 
 
 //move the dots when the button is clicked
-move_button.addEventListener('click', function(e){
+move_button.addEventListener('click', function(){
     var animate = function(){
 	var dots = pic.children;
 	//console.log(dots);
@@ -78,11 +77,11 @@ move_button.addEventListener('click', function(e){
 	    var y = parseInt(dot.getAttribute("cy"));
 	    var xVel = parseInt(dot.getAttribute("xVel"));
 	    var yVel = parseInt(dot.getAttribute("yVel"));
-	    if (x - 20 <= 0 || x + 20 >= pic.getAttribute("width")){
+	    if (x + xVel - 20 <= 0 || x + xVel + 20 >= pic.getAttribute("width")){
 		xVel = -xVel;
 		dot.setAttribute("xVel", xVel);
 	    }
-	    if (y - 20 <= 0 || y + 20 >= pic.getAttribute("height")){
+	    if (y + yVel - 20 <= 0 || y + yVel + 20 >= pic.getAttribute("height")){
 		yVel = -yVel;
 		dot.setAttribute("yVel", yVel);
 	    }
@@ -95,3 +94,27 @@ move_button.addEventListener('click', function(e){
     animate();
 })
 
+//speed up dots when button is clicked
+mys_button.addEventListener('click', function(){
+    var dots = pic.children;
+    var i;
+    for (i = 0; i < dots.length; i++){
+	var dot = dots[i];
+	var xVel = parseInt(dot.getAttribute("xVel"));
+	var yVel = parseInt(dot.getAttribute("yVel"));
+	if (xVel < 0){
+	    xVel = xVel - 1;
+	}
+	else{
+	    xVel = xVel + 1;
+	}
+	if (yVel < 0){
+	    yVel = yVel - 1;
+	}
+	else{
+	    yVel = yVel + 1;
+	}
+	dot.setAttribute("xVel", xVel);
+	dot.setAttribute("yVel", yVel);
+    }
+})
