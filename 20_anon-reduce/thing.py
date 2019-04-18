@@ -8,10 +8,9 @@ K#20 -- Reductio ad Absurdum
 from functools import reduce
 
 f = open("ulysses.txt", "r")
-data = [x.replace("\r\n","") for x in f.read().split(" ")]
+data = f.read().split()
 #data = ["hi", "the", "the", "and"]
-#print(data)
-#text=[x.replace("\r\n","") for x in f.read()]
+print(data)
 
 def freq(word):
     count = [1 if x == word else 0 for x in data]
