@@ -17,12 +17,14 @@ def freq(word):
     count = [1 if x == word else 0 for x in data]
     return reduce((lambda x, y: x + y),count)
 print(freq("the"))
+print(data.count("the"))
 
 def freq_group(words):
-    count = [1 if x in words else 0 for x in data ]
+    num = 1 + words.count(" ")
+    count = [1 if reduce((lambda x, y: x + " " + y), data[i: i+num]) == words else 0 for i in range(0, len(data)) ]
     return reduce((lambda x, y: x + y), count)
-print(freq_group(["and"]))
-print(freq_group(["the", "and"]))
+print(freq_group("he and"))
+
     
 def freq_most():
     words = set(data)
