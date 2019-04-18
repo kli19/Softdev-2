@@ -26,6 +26,8 @@ def freq_group(words):
     
 def freq_most():
     words = set(data)
+    #words = set(data[:50])
+    #print(len(words))
     count = [(x, freq(x)) for x in words]
     return reduce((lambda x, y: x if x[1] > y[1] else y), count)
 #print(freq_most())
