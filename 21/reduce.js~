@@ -1,0 +1,15 @@
+x = [1,2,3,4]
+
+var newX = x.map(function(n){
+    return x*2;
+});
+console.log("the doubled nums are", newX)
+//[2,4,6,8]
+
+var newX_1 = x.reduce(function(a,b){returna+b});
+console.log("the reduced nums are", newX_1)
+
+var newX_2 = x.filter(function(n){
+    return (n%2 == 0)});
+console.log("the filtered nums are", newX_2)
+//[2,4]

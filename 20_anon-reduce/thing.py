@@ -25,9 +25,10 @@ def freq_group(words):
 
     
 def freq_most():
+    #pass a set of non-repeating words to reduce iterations
     words = set(data)
     #words = set(data[:50])
     #print(len(words))
     count = [(x, freq(x)) for x in words]
     return reduce((lambda x, y: x if x[1] > y[1] else y), count)
-#print(freq_most())
+print(freq_most())
